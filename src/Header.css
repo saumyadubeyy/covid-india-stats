@@ -1,0 +1,17 @@
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+h1{
+    color: white;   
+    text-align: center;
+}
+
+.date{
+    font-weight: lighter;
+    font-size: 13px ;
+    word-spacing: 4px;
+}
+

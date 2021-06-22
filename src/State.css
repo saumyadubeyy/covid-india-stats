@@ -1,0 +1,42 @@
+.states{
+    width: 100%;
+    color: #6c757d;
+    font-weight: 900;
+}
+
+th{
+    text-align: center;
+}
+
+.td2{
+    text-align: center;
+}
+
+#st{
+    width: 20% ;
+    text-align: left;
+    padding-left: 13px ;
+}
+
+.states td,th{
+    width: 20%;
+    padding: 2px;
+    border: 5px solid #161625;
+    background-color: #1E1E30;
+    border-radius: 8%;
+}
+.hover:hover{
+    background-color: #282840;
+}
+.plusred{
+    color: red;
+    font-size:12px
+}
+.plusgreen{
+    color: #28a745;
+    font-size:12px
+}
+.plusgrey{
+    color: #6C757D;
+    font-size:12px
+}
