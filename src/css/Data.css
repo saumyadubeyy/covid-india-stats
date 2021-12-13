@@ -1,11 +1,11 @@
 .center{
-    width: 100%;
+    width: 80%;
+    margin: auto;
     margin-bottom: 5rem;
     text-align: center;
 }
 
 .tab{
-    
     color: #db5581 ;
     background-color: #DB558120;
     text-align: center;
@@ -21,7 +21,6 @@
 }
 .redp{
     color: rgba(255, 7, 58, 0.6);
-    font-size: 13px;
     font-weight:900 ;
 }
 
@@ -43,10 +42,10 @@
 }
 .plus{
     font-size: 13px;
+    padding-bottom: 8px;
     font-weight:900 ;
 }
 span{
-    font-size: 12px;
     font-weight: 600;
 }
 

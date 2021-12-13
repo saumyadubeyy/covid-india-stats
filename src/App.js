@@ -1,19 +1,16 @@
 import React from 'react'
-import Header from './Header'
-import Data from './Data'
-import State from './State'
-import End from './End'
-import './App.css'
-
-
-
+import Header from './components/Header'
+import Data from './components/Data'
+import State from './components/State'
+import End from './components/End'
+import "./App.css"
 
 const App = () => {
   return (
     <div className='container'>
       <Header />
       <Data />
-      <State /> 
+      <State />
       <End />
     </div>
   )

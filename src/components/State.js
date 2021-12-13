@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import './State.css'
-
-const url = "https://api.covid19india.org/data.json"
+import '../css/State.css'
+const url = "https://api.apify.com/v2/key-value-stores/toDWvRj1JpTXiM8FF/records/LATEST"
    
 const State = () => {
 const [data, setData] = useState([])
@@ -10,31 +9,27 @@ const getCovidData = async () => {
     try {
         const response = await fetch(url)
         const covidData = await response.json()
-        setData(covidData.statewise)
+        setData(covidData.regionData)
     } catch (error) {
         console.log(error)
     }   
 }
-
 const result = data.filter((obj, ind) => ind !== 0) ;
-    
 
 useEffect(() => {
     getCovidData()
-    
 }, [])
-
 
 return (
     <div>
         <table className='states'>
             <thead>
                 <tr>
-                    <th>State</th>
-                    <th>Confirmed</th>
-                    <th>Recovered</th>
-                    <th>Deaths</th>
-                    <th>Active</th>
+                    <th className='t-head'>State</th>
+                    <th className='t-head'>Confirmed</th>
+                    <th className='t-head'>Active</th>
+                    <th className='t-head'>Recovered</th>
+                    <th className='t-head'>Deaths</th>
                 </tr>
             </thead>
             
@@ -45,34 +40,43 @@ return (
                         <tr key={index}>
                             <td id='st'>
                                 <div>
-                                    {currentState.state}
+                                    {currentState.region}
                                 </div>
                             </td>
+                            
                             <td className='td2 hover'>
                                 <div>
                                     <div className="plusred">
-                                        ↑ {currentState.deltaconfirmed}
+                                        {
+                                            currentState.newInfected >= 0 ? <div> ↑ {currentState.newInfected.toLocaleString()} </div>: <div> ↓ {Math.abs(currentState.newInfected.toLocaleString())} </div>
+                                        }
                                     </div>
-                                    {currentState.confirmed} 
+                                    {currentState.totalInfected.toLocaleString('en-in')}
+                                </div>
+                            </td>
+                            <td className='td2 hover blue'>
+                                <div>
+                                    {currentState.activeCases.toLocaleString('en-in')}
                                 </div>
                             </td>
                             <td className='td2 hover'>
                                 <div>
                                     <div className="plusgreen">
-                                        ↑ {currentState.deltarecovered}
+                                        ↑ {currentState.newRecovered.toLocaleString('en-in')}
                                     </div>
-                                    {currentState.recovered}
+                                    {currentState.recovered.toLocaleString('en-in')}
                                 </div>
                             </td>
                             <td className='td2 hover'>
                                 <div>
                                     <div className="plusgrey">
-                                        ↑ {currentState.deltadeaths}
+                                        {
+                                            currentState.newDeceased >0 ? <div>+ {currentState.newDeceased.toLocaleString('en-in')} </div> : <div></div>
+                                        }
                                     </div>
-                                    {currentState.deaths}
+                                    {currentState.deceased.toLocaleString('en-in')}
                                 </div>
                             </td>
-                            <td className='td2 hover'>{currentState.active}</td>
                         </tr>
                     )
                 })
@@ -84,5 +88,4 @@ return (
 }
 
 export default State
-
 
